@@ -1,0 +1,9 @@
+{
+  "library": "spring-mvc",
+  "modelPackage": "com.rana.pilot.model",
+  "apiPackage": "com.rana.pilot.api",
+  "invokerPackage": "com.rana.pilot.invoker",
+  "delegatePattern": true
+}
+
+

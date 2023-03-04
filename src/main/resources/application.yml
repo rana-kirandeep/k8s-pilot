@@ -1,0 +1,4 @@
+server:
+  port: 8080
+
+todo_base_url: https://5afd868f-8ace-4f36-9bea-f2302c647357.mock.pstmn.io

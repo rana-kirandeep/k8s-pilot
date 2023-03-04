@@ -1,0 +1,17 @@
+apiVersion: skaffold/v2beta19
+kind: Config
+metadata:
+  name: pilot-app
+build:
+  artifacts:
+  - image: kirandeep/pilot-app
+    context: .
+    jib:
+      type: gradle
+  tagPolicy:
+    sha256: {}
+deploy:
+  kubectl:
+    manifests:
+    - k8s/*
+

@@ -1,0 +1,131 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.1'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'org.hidetake.swagger.generator' version '2.18.2'
+	id 'com.google.cloud.tools.jib' version '3.0.0'
+}
+
+group = 'com.rana'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.h2database:h2'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	swaggerCodegen 'org.openapitools:openapi-generator-cli:3.3.4'
+	swaggerUI 'org.webjars:swagger-ui:3.10.0'
+	implementation 'io.swagger.core.v3:swagger-annotations:2.0.7'
+	implementation 'io.springfox:springfox-swagger2:2.9.2'
+	implementation 'org.springdoc:springdoc-openapi-ui:1.2.21'
+	implementation 'org.openapitools:jackson-databind-nullable:0.2.1'
+
+	testImplementation "com.github.tomakehurst:wiremock-jre8:2.30.1"
+	testImplementation "org.skyscreamer:jsonassert:1.5.0"
+
+}
+
+swaggerSources {
+	abc {
+		inputFile = file('src/main/resources/pilotApi.yaml')
+		//inputFile = file('src/main/resources/demoApi.yaml')
+
+		code {
+			language = 'spring'
+			configFile=file("src/main/resources/pilotSwaggerConfig.json")
+
+		}
+
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+compileJava.dependsOn swaggerSources.abc.code
+sourceSets.main.java.srcDir "${swaggerSources.abc.code.outputDir}/src/main/java"
+sourceSets.main.resources.srcDir "${swaggerSources.abc.code.outputDir}/src/main/resources"
+
+
+task generateAPIDocs {
+	doLast {
+		println 'generateSwaggerUI executed!!'
+	}
+}
+
+
+
+generateAPIDocs.configure {
+	dependsOn(provider {
+		tasks.findAll { task -> task.name.startsWith('generateSwaggerUI') }
+	})
+}
+
+//Added Component Test folder to project src path
+sourceSets{
+	componentTest{
+		java.srcDir "$projectDir/src/componentTest/java"
+		resources.srcDir "$projectDir/src/componentTest/resources"
+		compileClasspath += main.output + test.output
+		runtimeClasspath += main.output + test.output
+	}
+}
+
+
+// run the componentTest/** tests
+task componentTest(type: Test) {
+	description = 'Runs component tests'
+	group = 'verification'
+	testClassesDirs = sourceSets.componentTest.output.classesDirs
+	classpath = sourceSets.componentTest.runtimeClasspath
+	outputs.upToDateWhen { false }
+}
+
+// print tests out to console as they run
+def testLogging = {
+	afterTest { desc, result ->
+		logger.quiet "Test ${desc.name} [${desc.className}] with result: ${result.resultType}"
+	}
+}
+
+test {
+	configure testLogging
+	useJUnitPlatform()
+}
+
+componentTest {
+	configure testLogging
+	useJUnitPlatform()
+}
+
+//Provide needed dependency to component test
+configurations {
+	componentTestImplementation.extendsFrom testImplementation
+	componentTestRuntime.extendsFrom testRuntime
+}
+
+processComponentTestResources{
+	duplicatesStrategy='include'
+}
+
+check.dependsOn componentTest
+componentTest.mustRunAfter test
