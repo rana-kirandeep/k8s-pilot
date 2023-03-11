@@ -25,14 +25,14 @@ public class HelloWorld {
 
     @GetMapping("/hello")
     public String test() throws InterruptedException {
-       RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        ResponseEntity<String> restResponse=restTemplate.getForEntity(postManBaseUrl+"/helloworld", String.class);
-        String res=restResponse.getBody().toString();
+//       RestTemplate restTemplate = new RestTemplate();
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setContentType(MediaType.APPLICATION_JSON);
+//        ResponseEntity<String> restResponse=restTemplate.getForEntity(postManBaseUrl+"/helloworld", String.class);
+//        String res=restResponse.getBody().toString();
 
 
-        return "hello Dear Munish, from Minal";
-       // return helloWorldService.test();
+       // return "hello Dear Munish, from Minal";
+        return helloWorldService.test();
     }
 }

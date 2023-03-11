@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="729e5bb0-ce19-4eb0-a7c4-a38dded627c7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/02-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/dev-namespace.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/01-dev-namespace.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/03-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rana/pilot/controller/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rana/pilot/controller/HelloWorld.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +92,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20230304_0000" />
+    <property name="com.google.cloudcode.ide_session_index" value="20230311_0001" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/k8s" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -293,6 +297,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
