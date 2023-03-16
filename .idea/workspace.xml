@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="729e5bb0-ce19-4eb0-a7c4-a38dded627c7" name="Default Changelist" comment="">
+    <list default="true" id="729e5bb0-ce19-4eb0-a7c4-a38dded627c7" name="Default Changelist" comment="Provide k8s deployment order and change service port">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8s/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/02-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8s/dev-namespace.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/01-dev-namespace.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k8s/service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/03-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rana/pilot/controller/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rana/pilot/controller/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/02-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/05-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/03-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/06-service.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +91,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20230311_0001" />
+    <property name="com.google.cloudcode.ide_session_index" value="20230316_0000" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/k8s" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -285,6 +284,14 @@
       <option name="presentableId" value="Default" />
       <updated>1624438072847</updated>
     </task>
+    <task id="LOCAL-00001" summary="Provide k8s deployment order and change service port">
+      <created>1678513888490</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678513888490</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -298,6 +305,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Provide k8s deployment order and change service port" />
+    <option name="LAST_COMMIT_MESSAGE" value="Provide k8s deployment order and change service port" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

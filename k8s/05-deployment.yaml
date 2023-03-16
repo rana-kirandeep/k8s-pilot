@@ -13,10 +13,17 @@ spec:
       labels:
         app: pilot-app
     spec:
+      volumes:
+        - name: webcontent
+          persistentVolumeClaim:
+            claimName: pvc-nfs-static-data
       containers:
         - name: pilot-app
           image: kirandeep/pilot-app
           ports:
             - containerPort: 8080
+          volumeMounts:
+            - name: webcontent
+              mountPath: "/kd"
       imagePullSecrets:
         - name: regcred
